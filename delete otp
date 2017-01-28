@@ -1,0 +1,173 @@
+CREATE EVENT delete_otp
+ON SCHEDULE at CURRENT_TIMESTAMP + INTERVAL 1 SECOND_MICROSECOND
+ON COMPLETION PRESERVE
+DO 
+      UPDATE user_id 
+      set otp=NULL
+      where otp_generate_time< DATE_SUB(NOW(), INTERVAL 5 MINUTE)
+
+
+
+     function request() {
+    jQuery(function($) {    
+        $.ajax( {           
+            url : request.php,
+            type : "POST",
+            success : function(data) {
+            	alert(data);
+            });
+        return false;
+        });
+    }
+
+
+    <script type="text/javascript">
+  	$('#submit').click(function()
+{
+    $.ajax({
+        url: request.php,
+        type:'POST',
+        
+        success: function(data)
+        {
+            alert('inserted');
+        }               
+    });
+});
+
+  </script>
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+function check()
+{
+	var url1 = "check.php";
+
+    // get the URL
+    var http1 = new XMLHttpRequest(); 
+
+    http1.open("POST", url1, true);
+    http1.onload = function (e) {
+  if (http1.readyState === 4) {
+    if (http1.status === 200) {
+      console.log(http1.responseText);
+    } else {
+      console.error(http1.statusText);
+    }
+  }
+};
+http1.onerror = function (e) {
+  console.error(http1.statusText);
+};
+    http1.send(null);
+    //document.getElementById("def").innerHTML = http1.responseText;
+
+    // prevent form from submitting
+    return false;
+};
+
+</script>
+
+
+<script type="text/javascript">
+    window.onbeforeunload = function(e){
+        var msg = 'Are you sure?';
+        e = e || window.event;
+
+        if(e)
+            e.returnValue = msg;
+
+        return msg;
+    }
+</script>
+
+
+
+
+<script type="text/javascript">
+  window.onbeforeunload = function() {
+    var x = logout1();
+    return x;
+};
+
+function logout1(){
+       var url="logout.php";
+       var http=new XMLHttpRequest();
+       http.open("POST",url,true);
+       http.send(null);
+
+       return false;
+}
+</script>
+
+
+
+
+
+
+
+
+function send(){
+      var val1 = document.getElementById("chat").value;
+      //window.alert(val1);
+      var vars="chat1="+val1;
+      var http=new XMLHttpRequest();
+
+      http.open("POST","sendChat.php",true);
+      http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      
+      http.onreadystatechange = function() {
+    if(http.readyState == 4 && http.status == 200) {
+        var return_data = http.responseText;
+        document.getElementById("status").innerHTML = return_data;
+    }
+}
+http.onerror = function (e) {
+  console.error(http.statusText);
+};
+    //http.send(null);
+
+    //document.getElementById("abc").innerHTML = http.responseText;
+
+    // prevent form from submitting
+    //return false;
+    http.send("vars");
+
+    }
+
+
+
+
+
+    hr.onreadystatechange = function() {
+    if(hr.readyState == 4 && hr.status == 200) {
+        //var return_data = hr.responseText;
+        //document.getElementById("status").innerHTML = return_data + "<br />";
+    }
+}
+
+
+
+
+
+
+rec.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  rec.onreadystatechange = function() {
+    if(rec.readyState == 4 && rec.status == 200) {
+        var return_data = rec.responseText;
+        document.getElementById("status").innerHTML = return_data + "<br />";
+    }
+}
+
+
+
+
+
+
+<!--><div class="col-sm-4"><a href="chat.php" class="btn btn-info btn-block" style="border-radius:24px; background-color:#31ff61">Chat</a></button></div><!-->
